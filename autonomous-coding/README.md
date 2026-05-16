@@ -1,6 +1,7 @@
 # Autonomous Coding Agent Demo
 
-A minimal harness demonstrating long-running autonomous coding with the Claude Agent SDK. This demo implements a two-agent pattern (initializer + coding agent) that can build complete applications over multiple sessions.
+A minimal harness demonstrating long-running autonomous coding with the Claude Agent SDK. This demo implements a
+two-agent pattern (initializer + coding agent) that can build complete applications over multiple sessions.
 
 ## Prerequisites
 
@@ -15,12 +16,14 @@ pip install -r requirements.txt
 ```
 
 Verify your installations:
+
 ```bash
 claude --version  # Should be latest version
 pip show claude-code-sdk  # Check SDK is installed
 ```
 
 **API Key:** Set your Anthropic API key:
+
 ```bash
 export ANTHROPIC_API_KEY='your-api-key-here'
 ```
@@ -32,6 +35,7 @@ python autonomous_agent_demo.py --project-dir ./my_project
 ```
 
 For testing with limited iterations:
+
 ```bash
 python autonomous_agent_demo.py --project-dir ./my_project --max-iterations 3
 ```
@@ -40,21 +44,25 @@ python autonomous_agent_demo.py --project-dir ./my_project --max-iterations 3
 
 > **Warning: This demo takes a long time to run!**
 
-- **First session (initialization):** The agent generates a `feature_list.json` with 200 test cases. This takes several minutes and may appear to hang - this is normal. The agent is writing out all the features.
+- **First session (initialization):** The agent generates a `feature_list.json` with 200 test cases. This takes several
+  minutes and may appear to hang - this is normal. The agent is writing out all the features.
 
 - **Subsequent sessions:** Each coding iteration can take **5-15 minutes** depending on complexity.
 
 - **Full app:** Building all 200 features typically requires **many hours** of total runtime across multiple sessions.
 
-**Tip:** The 200 features parameter in the prompts is designed for comprehensive coverage. If you want faster demos, you can modify `prompts/initializer_prompt.md` to reduce the feature count (e.g., 20-50 features for a quicker demo).
+**Tip:** The 200 features parameter in the prompts is designed for comprehensive coverage. If you want faster demos, you
+can modify `prompts/initializer_prompt.md` to reduce the feature count (e.g., 20-50 features for a quicker demo).
 
 ## How It Works
 
 ### Two-Agent Pattern
 
-1. **Initializer Agent (Session 1):** Reads `app_spec.txt`, creates `feature_list.json` with 200 test cases, sets up project structure, and initializes git.
+1. **Initializer Agent (Session 1):** Reads `app_spec.txt`, creates `feature_list.json` with 200 test cases, sets up
+   project structure, and initializes git.
 
-2. **Coding Agent (Sessions 2+):** Picks up where the previous session left off, implements features one by one, and marks them as passing in `feature_list.json`.
+2. **Coding Agent (Sessions 2+):** Picks up where the previous session left off, implements features one by one, and
+   marks them as passing in `feature_list.json`.
 
 ### Session Management
 
@@ -79,7 +87,7 @@ Commands not in the allowlist are blocked by the security hook.
 
 ## Project Structure
 
-```
+```text
 autonomous-coding/
 ├── autonomous_agent_demo.py  # Main entry point
 ├── agent.py                  # Agent session logic
@@ -98,7 +106,7 @@ autonomous-coding/
 
 After running, your project directory will contain:
 
-```
+```text
 my_project/
 ├── feature_list.json         # Test cases (source of truth)
 ├── app_spec.txt              # Copied specification
@@ -123,15 +131,16 @@ npm install
 npm run dev
 ```
 
-The application will typically be available at `http://localhost:3000` or similar (check the agent's output or `init.sh` for the exact URL).
+The application will typically be available at `http://localhost:3000` or similar (check the agent's output or `init.sh`
+for the exact URL).
 
 ## Command Line Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--project-dir` | Directory for the project | `./autonomous_demo_project` |
-| `--max-iterations` | Max agent iterations | Unlimited |
-| `--model` | Claude model to use | `claude-sonnet-4-5-20250929` |
+| Option             | Description               | Default                      |
+| ------------------ | ------------------------- | ---------------------------- |
+| `--project-dir`    | Directory for the project | `./autonomous_demo_project`  |
+| `--max-iterations` | Max agent iterations      | Unlimited                    |
+| `--model`          | Claude model to use       | `claude-sonnet-4-5-20250929` |
 
 ## Customization
 
@@ -149,14 +158,13 @@ Edit `security.py` to add or remove commands from `ALLOWED_COMMANDS`.
 
 ## Troubleshooting
 
-**"Appears to hang on first run"**
-This is normal. The initializer agent is generating 200 detailed test cases, which takes significant time. Watch for `[Tool: ...]` output to confirm the agent is working.
+**"Appears to hang on first run"** This is normal. The initializer agent is generating 200 detailed test cases, which
+takes significant time. Watch for `[Tool: ...]` output to confirm the agent is working.
 
-**"Command blocked by security hook"**
-The agent tried to run a command not in the allowlist. This is the security system working as intended. If needed, add the command to `ALLOWED_COMMANDS` in `security.py`.
+**"Command blocked by security hook"** The agent tried to run a command not in the allowlist. This is the security
+system working as intended. If needed, add the command to `ALLOWED_COMMANDS` in `security.py`.
 
-**"API key not set"**
-Ensure `ANTHROPIC_API_KEY` is exported in your shell environment.
+**"API key not set"** Ensure `ANTHROPIC_API_KEY` is exported in your shell environment.
 
 ## License
 

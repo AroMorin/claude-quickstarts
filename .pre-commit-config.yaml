@@ -22,3 +22,12 @@ repos:
     rev: v1.1.384
     hooks:
       - id: pyright
+
+  - repo: local
+    hooks:
+      - id: require-version-bump
+        name: require SemVer version bump
+        entry: uv run python .pre-commit-hooks/check-version-bump.py
+        language: system
+        pass_filenames: false
+        always_run: true

@@ -2,7 +2,8 @@
 
 ![hero](public/hero.png)
 
-A sophisticated Next.js application that combines Claude's capabilities with interactive data visualization to analyze financial data via chat.
+A sophisticated Next.js application that combines Claude's capabilities with interactive data visualization to analyze
+financial data via chat.
 
 ## Features
 
@@ -29,22 +30,26 @@ A sophisticated Next.js application that combines Claude's capabilities with int
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/anthropics/anthropic-quickstarts.git
 cd anthropic-quickstarts/financial-data-analyst
 ```
 
-2. Install dependencies:
+1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Create a `.env.local` file in the root directory:
+1. Create a `.env.local` file in the root directory:
+
 ```env
 ANTHROPIC_API_KEY=your_api_key_here
 ```
 
-4. Run the development server:
+1. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -114,7 +119,7 @@ While primarily designed for financial analysis, the AI assistant can be adapted
    - Create charts for metrics like steps, heart rate, and sleep patterns
    - Analyze long-term health trends and provide insights
 
-You can even use charts and images to create interesting results, like the ability to see what's most common inside a picture using a pie chart.
+You can even use charts and images to create interesting results, like the ability to see what's most common inside a
+picture using a pie chart.
 
 ![Image Analysis](public/image-analysis.png)
-

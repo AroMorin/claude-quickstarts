@@ -1,15 +1,19 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to the Computer Use Demo quickstart! This document outlines the process and guidelines for contributing to this project.
+Thank you for your interest in contributing to the Computer Use Demo quickstart! This document outlines the process and
+guidelines for contributing to this project.
 
 ## Code of Conduct
 
-Please be respectful and constructive in all interactions. We aim to maintain a welcoming and inclusive environment for all contributors.
+Please be respectful and constructive in all interactions. We aim to maintain a welcoming and inclusive environment for
+all contributors.
 
 ## Contribution Policy
 
 - Bugfixes and updates to our documentation that address correctness issues are always welcome
-- Feature additions, refactors, and documentation updates beyond the scope of correctness (major changes) are accepted at the sole determination of the maintainers. We require each major change to be submitted in a separate Pull Request. We will assess new features under the following criteria:
+- Feature additions, refactors, and documentation updates beyond the scope of correctness (major changes) are accepted
+  at the sole determination of the maintainers. We require each major change to be submitted in a separate Pull Request.
+  We will assess new features under the following criteria:
   - Adherence to coding standards
   - Ease of use as a reference implementation
   - User experience
@@ -37,6 +41,7 @@ Please open a github issue if you are need clarification on this policy or you w
    ```
 
 3. Install pre-commit hooks:
+
    ```bash
    pre-commit install
    ```
@@ -77,9 +82,11 @@ We use several tools to maintain code quality:
 - Follow existing test patterns (see `tests/tools/` for examples)
 - Use pytest fixtures where appropriate
 - Run tests with:
+
   ```bash
   pytest
   ```
+
 - Tests must pass in async mode (configured in pyproject.toml)
 
 ## Commit Guidelines

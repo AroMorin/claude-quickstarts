@@ -10,7 +10,14 @@
 
 - **Setup environment**: `./setup.sh`
 - **Build Docker**: `docker build . -t computer-use-demo:local`
-- **Run container**: `docker run -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY -v $(pwd)/computer_use_demo:/home/computeruse/computer_use_demo/ -v $HOME/.anthropic:/home/computeruse/.anthropic -p 5900:5900 -p 8501:8501 -p 6080:6080 -p 8080:8080 -it computer-use-demo:local`
+- **Run container**:
+
+  ```bash
+  docker run -e ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" \
+    -v "$(pwd)/computer_use_demo:/home/computeruse/computer_use_demo/" \
+    -v "$HOME/.anthropic:/home/computeruse/.anthropic" \
+    -p 5900:5900 -p 8501:8501 -p 6080:6080 -p 8080:8080 -it computer-use-demo:local
+  ```
 
 ### Testing & Code Quality
 
@@ -34,7 +41,8 @@
 
 - **Install dependencies**: `npm install`
 - **Run dev server**: `npm run dev` (full UI)
-- **UI variants**: `npm run dev:left` (left sidebar), `npm run dev:right` (right sidebar), `npm run dev:chat` (chat only)
+- **UI variants**: `npm run dev:left` (left sidebar), `npm run dev:right` (right sidebar), `npm run dev:chat` (chat
+  only)
 - **Lint**: `npm run lint`
 - **Build**: `npm run build` (full UI), see package.json for variants
 
